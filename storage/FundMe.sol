@@ -8,6 +8,7 @@ contract FundMe {
     using PriceConverter for uint;
     uint public minimumUsd = 50 * 1e18;
     mapping (address => uint) public addressToAmountFunded;
+    mapping (address => bool) bool addressToBOol;
 
     address public owner;
 
