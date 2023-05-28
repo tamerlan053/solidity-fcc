@@ -6,12 +6,7 @@ import "./SimpleStorage.sol";
 
 contract ExtraStorage is SimpleStorage {
 
-        uint public myUint;
         function store(uint256 _favoriteNumber) public virtual override {
         favoriteNumber = _favoriteNumber + 5;
         
-        function setUint(uint _myUint) public {
-         myUint = _myUint;
-
-    }
 }
