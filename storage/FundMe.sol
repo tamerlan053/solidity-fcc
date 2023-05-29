@@ -6,7 +6,7 @@ import "./PriceConverter.sol";
 
 contract FundMe {
     using PriceConverter for uint;
-    uint public constant minimumUsd = 50 * 1e18;
+    uint public constant MINIMUM_USD = 50 * 1e18;
     mapping (address => uint) public addressToAmountFunded;
     
     address public owner;
@@ -18,7 +18,7 @@ contract FundMe {
     address[] public funders;
 
     function fund() public payable {
-        require(msg.value.getConversionRate() >= minimumUsd, "Not enough funds, aborting!");
+        require(msg.value.getConversionRate() >= MINIMUM_USD, "Not enough funds, aborting!");
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] = msg.value;
     }
