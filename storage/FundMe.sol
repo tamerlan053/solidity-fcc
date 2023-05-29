@@ -6,7 +6,7 @@ import "./PriceConverter.sol";
 
 contract FundMe {
     using PriceConverter for uint;
-    uint public minimumUsd = 50 * 1e18;
+    uint public constant minimumUsd = 50 * 1e18;
     mapping (address => uint) public addressToAmountFunded;
     
     address public owner;
