@@ -8,11 +8,11 @@ contract FundMe {
     using PriceConverter for uint;
     uint public constant MINIMUM_USD = 50 * 1e18;
     mapping (address => uint) public addressToAmountFunded;
-    
-    address public owner;
+
+    address public immutable i_owner;
 
     constructor() {
-        owner = msg.sender;
+        i_owner = msg.sender;
     }
 
     address[] public funders;
@@ -36,7 +36,7 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "You are not the owner");
+        require(msg.sender == i_owner, "You are not the owner");
         _;
     }
 }
